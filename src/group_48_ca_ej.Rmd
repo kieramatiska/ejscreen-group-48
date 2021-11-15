@@ -24,3 +24,17 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
   clean_names()
 ```
 
+
+## Create scatter plot
+
+Plot variables proportion white (`white_percent`) on the x-axis and CalEnviroScreen 3.0 score (`ces_3_0_score`) on the y-axis
+
+```{r}
+#Scatterplot
+ggplot(data = ces, aes(x = white_percent,
+                       y = ces_3_0_score)) +
+  
+  #Define scatter
+  geom_point()
+```
+
