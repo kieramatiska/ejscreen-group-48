@@ -26,27 +26,26 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
 ```
 
 
-## Create scatter plot
+## Create Hex plot
 
 Create a hex plot with variables proportion white (`white_percent`) on the x-axis and CalEnviroScreen 3.0 score (`ces_3_0_score`) on the y-axis
 
+- Add labels for the title, x-axis, and y-axis
+- Change the gradient colors from high (red) to low (blue)
+- Make the theme of the plot minimal
+- Add a figure caption
+
 ```{r}
-# Scatterplot
-ggplot(data = ces, aes(x = white_percent,
-                       y = ces_3_0_score)) +
+# Hex plot
+ggplot(data = ces, 
+       aes(x = white_percent, y = ces_3_0_score)) +
   geom_hex() + # Define hex
-  
-  labs(title = "Environmental Health Scores for Different Areas \nby Proportion of White People", # Add title
+  labs(title = "Environmental Health Scores for Different Areas \nby Percentage of White People", # Add title
        x = "Proportion of White People (%)", # Add x-axis label
        y = "Environmental Health Score") + # Add y-axis label
-  
-  #Change fill color
-  scale_fill_gradient(low = "blue",
+  scale_fill_gradient(low = "blue", # Change fill color
                       high = "red") +
-  #Change theme
-  theme_minimal() +
-  
-  #Center title
-  theme(plot.title = element_text(hjust = 0.5))
+  theme_minimal() + # Change theme
+  theme(plot.title = element_text(hjust = 0.5)) # Center title
 ```
-
+**Figure 1.** Environmental Health Scores for Different Areas by Percentage of White People. The score is determined by the CalEnviroScreen 3.0 tool created by the Office of Environmental Health Hazard Assessment (OEHHA) at the Environmental Protection Agency in California (CalEPA). The scores are calculated by multiplying pollution burden by population characteristics. Higher scores have both high pollution burdens and more vulnerable populations than those areas with lower scores.
