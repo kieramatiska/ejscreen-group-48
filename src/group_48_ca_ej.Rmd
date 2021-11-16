@@ -5,8 +5,8 @@ date: "11/13/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r setup, include = TRUE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE)
 
 # Attach Packages
 library(tidyverse)
@@ -35,8 +35,18 @@ Create a hex plot with variables proportion white (`white_percent`) on the x-axi
 ggplot(data = ces, aes(x = white_percent,
                        y = ces_3_0_score)) +
   geom_hex() + # Define hex
-  labs(title = "Environmental Health Score of Different Areas by Percentage of White People", # Add title
-       x = "White Person Percentage (%)", # Add x-axis label
-       y = "Environmental Health Score") # Add y-axis label
+  
+  labs(title = "Environmental Health Scores for Different Areas \nby Proportion of White People", # Add title
+       x = "Proportion of White People (%)", # Add x-axis label
+       y = "Environmental Health Score") + # Add y-axis label
+  
+  #Change fill color
+  scale_fill_gradient(low = "blue",
+                      high = "red") +
+  #Change theme
+  theme_minimal() +
+  
+  #Center title
+  theme(plot.title = element_text(hjust = 0.5))
 ```
 
