@@ -17,9 +17,6 @@ library(hexbin)
 
 ## Read in and tidy the data
 
-- Use the `read_csv()` and the `here` package to read in ces3demographics.csv
-- Use `clean_names()` from the `janitor` package to rename column headers to lower-snake case
-
 ```{r}
 ces <- read_csv(here("data", "ces3demographics.csv")) %>% 
   clean_names()
@@ -29,11 +26,6 @@ ces <- read_csv(here("data", "ces3demographics.csv")) %>%
 ## Create Hex plot
 
 Create a hex plot with variables proportion white (`white_percent`) on the x-axis and CalEnviroScreen 3.0 score (`ces_3_0_score`) on the y-axis
-
-- Add labels for the title, x-axis, and y-axis
-- Change the gradient colors from high (red) to low (blue)
-- Make the theme of the plot minimal
-- Add a figure caption
 
 ```{r}
 # Hex plot
