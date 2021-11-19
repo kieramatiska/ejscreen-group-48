@@ -37,9 +37,11 @@ ggplot(data = ces,
        y = "Environmental Health Score") + # Add y-axis label
   scale_fill_gradient(low = "blue", # Change fill color
                       high = "red",
-                      name = "Frequency") + #Change legend title
+                      name = "Frequency") + # Change legend title
   theme_minimal() + # Change theme
-  theme(plot.title = element_text(hjust = 0.5)) # Center title
+  theme(plot.title = element_text(hjust = 0.5), # Center title
+        panel.background = element_rect(fill = "gray94"), 
+        plot.background = element_rect(fill = "lavender")) 
 ```
 **Figure 1.** Environmental Health Scores for Different Areas by Percentage of White People. The score is determined by the CalEnviroScreen 3.0 tool created by the Office of Environmental Health Hazard Assessment (OEHHA) at the Environmental Protection Agency in California (CalEPA). The scores are calculated by multiplying pollution burden by population characteristics. Higher scores have both high pollution burdens and more vulnerable populations than those areas with lower scores. Data source: OEHHA, CalEnviroScreen 3.0 (2017).
 
